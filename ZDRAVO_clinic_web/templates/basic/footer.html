@@ -1,0 +1,27 @@
+{% load static %}
+{% load i18n %}
+<footer>
+    <div class="w-100 mt-5">
+        <div class="row g-2 g-md-3 g-lg-4 g-xl-5 m-0 p-0 justify-content-center align-items-end">
+            <div class="col-12 col-sm-6 col-md-4 mt-0 col-lg-3">
+                <div class="mt-0 w-100">
+                    <a href="{% url 'home_page' %}"> <img src="{% static '/images/logo.svg' %}" class="w-100"
+                                                          alt="logo"></a>
+                </div>
+            </div>
+            <div class="col-12 col-sm-12 col-md-8 mt-0 col-lg-9">
+                <div class="navigator mt-3 d-flex justify-content-end flex-wrap align-items-center footer_navigator pt-4">
+                    <a href="{% url 'home_page' %}#about-clinic" class="header_menu_items">Про нас</a>
+                    <a href="{% url 'departments' %}" class="header_menu_items">Послуги</a>
+                    <a href="{% url 'home_page' %}#personal" class="header_menu_items">Спеціалісти</a>
+                    <a href="{% url 'home_page' %}#check-up" class="header_menu_items">Check-Up</a>
+                    <a href="#contacts" class="header_menu_items">Контакти</a>
+                </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-center mt-4">
+                <p>Всі права захищені. © 2022 ZDRAVO</p>
+            </div>
+        </div>
+
+    </div>
+</footer>

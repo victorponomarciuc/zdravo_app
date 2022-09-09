@@ -1,0 +1,99 @@
+{% load static %}
+{% load i18n %}
+
+{#<section id="personal">#}
+{#    <div class="section_header d-flex align-items-center mt-4">#}
+{#        <span class="line line-small"></span>#}
+{#        <h3 class="section_title mx-3 d-flex flex-wrap flex-md-nowrap"><span class="text-green">ZDRAVO</span><span#}
+{#                class="mx-2">-</span><span>НАШІ СПЕЦІАЛІСТИ</span></h3>#}
+{#        <span class="line line-large"></span>#}
+{#    </div>#}
+{#    <div class="w-100 mt-4">#}
+{#        <div class="row g-2 justify-content-between p-0 m-0">#}
+{#            {% for personal in personal_all %}#}
+{#                <div class="col-6 col-sm-6 col-md-3 d-flex flex-column align-items-center px-0 px-sm-1 px-md-3">#}
+{#                    <img src="{{ personal.image.url }}" alt="personal" class="w-100">#}
+{#                    <span class="line line-large m-2"></span>#}
+{#                    <h1 class="section_items_title text-green text-uppercase text-center">{{ personal.full_name }}</h1>#}
+{#                    <p class="section_items_description text-center mt-3 d-flex flex-column align-items-center">#}
+{#                        <span class="w-100">#}
+{#                            {% if personal.experience and personal.experience != 0 %}#}
+{#                            досвід роботи {{ personal.experience }} років#}
+{#                            {% endif%}#}
+{#                            </span>#}
+{#                        <span class="w-100">#}
+{#                            {% for posts in personal.post.all %}#}
+{#                                {% if forloop.last %}#}
+{#                                    {{ posts.name }}#}
+{#                                {% else %}#}
+{#                                    {{ posts.name }},#}
+{#                                {% endif %}#}
+{#                            {% endfor %}#}
+{##}
+{#                        </span>#}
+{#                        {% if personal.category_steep != 'no_category' %}#}
+{#                            <span class="w-100">{{ personal.get_category_steep_display }}</span>#}
+{#                        {% endif %}#}
+{#                        {% if personal.comment %}#}
+{#                            <span class="w-100">{{ personal.comment }}</span>#}
+{#                        {% endif %}#}
+{#                    </p>#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}
+
+
+<section id="personal">
+    <div id="wrapper">
+        <div id="carousel">
+            <div id="content">
+                {% for personal in personal_all %}
+                    <div class="item">
+                        <div class="w-100">
+                            <img src="{{ personal.image.url }}" alt="personal" class="w-100">
+                            <span class="line line-large m-2"></span>
+                            <h1 class="section_items_title text-green text-uppercase text-center">{{ personal.full_name }}</h1>
+                            <p class="section_items_description text-center mt-3 d-flex flex-column align-items-center">
+                        <span class="w-100">
+                            {% if personal.experience and personal.experience != 0 %}
+                                досвід роботи {{ personal.experience }} років
+                            {% endif %}
+                            </span>
+                                <span class="w-100">
+                            {% for posts in personal.post.all %}
+                                {% if forloop.last %}
+                                    {{ posts.name }}
+                                {% else %}
+                                    {{ posts.name }},
+                                {% endif %}
+                            {% endfor %}
+
+                        </span>
+                                {% if personal.category_steep != 'no_category' %}
+                                    <span class="w-100">{{ personal.get_category_steep_display }}</span>
+                                {% endif %}
+                                {% if personal.comment %}
+                                    <span class="w-100">{{ personal.comment }}</span>
+                                {% endif %}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <button id="prev">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M15.61 7.41L14.2 6l-6 6 6 6 1.41-1.41L11.03 12l4.58-4.59z"/>
+            </svg>
+        </button>
+        <button id="next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"/>
+                <path d="M10.02 6L8.61 7.41 13.19 12l-4.58 4.59L10.02 18l6-6-6-6z"/>
+            </svg>
+        </button>
+    </div>
+</section>

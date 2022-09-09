@@ -1,0 +1,37 @@
+{% load static %}
+{% load i18n %}
+
+<div class="offcanvas offcanvas-end"  data-bs-backdrop="static" tabindex="-1" id="Header_menu_content"
+     aria-labelledby="Header_menu_contentLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="Header_menu_contentLabel"></h5>
+        <button type="button" class="btn-close canvas_close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="d-flex align-items-center justify-content-between">
+            <div class="social d-flex align-items-center">
+                <a class="social_link me-1" href="{{ contacts.viber }}">
+                    <img src="{% static '/images/viber.svg' %}" class="social_top-img" alt="">
+                </a>
+                <a class="social_link" href="{{ contacts.telegram }}">
+                    <img src="{% static '/images/telegram.svg' %}" class="social_top-img" alt="">
+                </a>
+            </div>
+            <div class="phone_block flex-wrap align-items-center me-0 me-sm-2 me-md-3 md-lg-4 me-xl-5">
+                <a href="tel:{{ contacts.phone }}">{{ contacts.phone }}</a>
+            </div>
+        </div>
+        <div class="navigator my-4 d-flex flex-column">
+            <a href="{% url 'home_page' %}#about-clinic" id="id_about-clinic" class="header_menu_items text-start bg-transparent p-0 border-0 mt-4 click_canvas_item" >Про нас</a>
+            <a href="{% url 'departments' %}" class="header_menu_items mt-4" >Послуги</a>
+            <a href="{% url 'home_page' %}#personal" id="id_personal" class="header_menu_items text-start bg-transparent p-0 border-0 mt-4 click_canvas_item" >Спеціалісти</a>
+            <a href="{% url 'home_page' %}#check-up" id="id_check-up" class="header_menu_items text-start bg-transparent p-0 border-0 mt-4 click_canvas_item" >Check-Up</a>
+            <a href="#contacts" id="id_contacts" class="header_menu_items text-start bg-transparent p-0 border-0 mt-4 click_canvas_item" >Контакти</a>
+        </div>
+        <div class="offcanvas_button d-flex text-center mt-4 w-100">
+            <button class="primary_button w-100 text-decoration-none border-0 outline-0" data-bs-toggle="modal"
+                    data-bs-target="#Consult_form_modal">Онлайн-запис
+            </button>
+        </div>
+    </div>
+</div>

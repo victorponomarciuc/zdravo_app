@@ -1,0 +1,24 @@
+{% extends 'basic/header_block.html' %}
+{% load static %}
+{% load i18n %}
+{% block header_content %}
+    <div class="header_content mt-5">
+        <div class="header_content_overlay">
+            <div class="header_content_left">
+                <h1 class="content_title"><span class="text-green bold_title">це ZDRAVO</span><span
+                        class="title_line">-</span></h1>
+                <h2 class="second_title">піклуватись про найдорожчих</h2>
+                <h3 class="three_title mt-5 pt-5">
+                    <span class="title_line">це</span>
+                    <span class="content_title_second text-green"> ZDRAVO - </span>
+                    <span class="title_line w-sm-100">коли немає черг</span>
+                </h3>
+            </div>
+            <div class="button_bottom_block d-flex justify-content-between flex-wrap align-items-center mt-3">
+                <button class="primary_button text-decoration-none border-0 outline-0" data-bs-toggle="modal"
+                        data-bs-target="#Consult_form_modal">Онлайн-запис
+                </button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

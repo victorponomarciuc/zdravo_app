@@ -1,0 +1,51 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TQH9JLZ');</script>
+<!-- End Google Tag Manager -->
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap-5.2.0-dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-msgpopup.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/Frame_min.svg' %}">
+    <title>ZDRAVO CLINIC</title>
+</head>
+<body>
+    
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TQH9JLZ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<main class="limited_width">
+    {% block content_page %}
+    {% endblock %}
+    {% include 'basic/footer.html' %}
+</main>
+{#    Modal forms include #}
+{% include 'site_app/blocks/modal_forms.html' %}
+{% include 'site_app/blocks/checkUp_modal.html' %}
+{#    Offcanvas_menu include #}
+{% include 'site_app/blocks/offcanvas_menu.html' %}
+</body>
+<script src="{% static 'bootstrap-5.2.0-dist/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'jquery/jquery.js' %}"></script>
+<script src="{% static 'jquery/jquery-msgpopup.js' %}"></script>
+<script src="{% static 'js/Contact_forms.js' %}"></script>
+<script src="{% static 'js/common.js' %}"></script>
+<script src="{% static 'js/online_service_regisater.js' %}"></script>
+{% block script %}
+
+{% endblock %}
+</html>

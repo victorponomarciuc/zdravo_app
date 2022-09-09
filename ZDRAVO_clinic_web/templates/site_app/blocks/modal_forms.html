@@ -1,0 +1,49 @@
+{% load static %}
+{% load i18n %}
+<style>
+    .option_custom {
+        word-wrap: break-word!important;
+    }
+</style>
+<div class="modal fade" id="Consult_form_modal" tabindex="-1" aria-labelledby="Consult_form_modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="Consult_form_modalLabel">Онлайн-запис</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" id="form_online_register_new">
+                    {% csrf_token %}
+                    <input class="contact_form_input input_custom w-100 mt-2 required_input_online_register_new"
+                           id="firstname_online_register_new"
+                           type="text"
+                           name="firstname"
+                           placeholder="Вкажіть ваше ім'я">
+                    <input class="contact_form_input input_custom w-100 mt-2 required_input_online_register_new"
+                           id="lastname_online_register_new"
+                           type="text"
+                           name="lastname"
+                           placeholder="Вкажіть ваше прізвище">
+                    <input class="contact_form_input input_custom w-100 mt-2 required_input_online_register_new"
+                           id="phone_online_register_number_new"
+                           type="phone"
+                           name="phone"
+                           placeholder="Вкажіть ваш номер телефону">
+                    <input class="contact_form_input input_custom w-100 mt-2" id="email" type="email" name="email"
+                           placeholder="Вкажіть вашу електронну пошту">
+                    <textarea name="comment" class="contact_form_input input_custom w-100 mt-2"
+                              placeholder="Напишіть коментар..."></textarea>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="button" id="online_register_form_submit_button_custom"
+                                class="primary_button text-decoration-none border-0 outline-0 d-flex align-items-center">
+                            <span></span>
+                            Записатися
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

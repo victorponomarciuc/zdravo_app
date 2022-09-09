@@ -1,0 +1,48 @@
+{% load static %}
+{% load i18n %}
+<header>
+    <div class="d-flex justify-content-between flex-wrap align-items-center header_top_content">
+        <div class="logo header_left_block">
+            <a href="{% url 'home_page' %}"> <img src="{% static '/images/logo.svg' %}" class="w-100" alt="logo"></a>
+        </div>
+        <button class="hamburger_menu_button bg-transparent border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#Header_menu_content" aria-controls="Header_menu_content">
+            <img src="{% static '/images/burger.svg' %}" class="burger_icon" alt="">
+        </button>
+
+        <div class="hidden_button_header">
+            <button class="primary_button text-decoration-none border-0 outline-0" data-bs-toggle="modal"
+                    data-bs-target="#Consult_form_modal">Онлайн-запис
+            </button>
+        </div>
+        <div id="right-header-content"
+             class="header_right_block d-flex justify-content-between flex-wrap align-items-center">
+            <div
+                    class="social d-flex justify-content-between flex-wrap align-items-center me-0 me-sm-2 me-md-3 md-lg-4 me-xl-5">
+                <a class="social_link me-1" href="{{ contacts.viber }}">
+                    <img src="{% static '/images/viber.svg' %}" class="social_top-img" alt="">
+                </a>
+                <a class="social_link" href="{{ contacts.telegram }}">
+                    <img src="{% static '/images/telegram.svg' %}" class="social_top-img" alt="">
+                </a>
+            </div>
+            <div class="phone_block flex-wrap align-items-center me-0 me-sm-2 me-md-3 md-lg-4 me-xl-5">
+                <a href="tel:{{ contacts.phone }}">{{ contacts.phone }}</a>
+            </div>
+            <div class="button_right_block">
+                <button class="primary_button text-decoration-none border-0 outline-0" data-bs-toggle="modal"
+                        data-bs-target="#Consult_form_modal">Онлайн-запис
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="navigation-md" class="navigator mt-3 d-flex justify-content-end flex-wrap align-items-center">
+        <a href="{% url 'departments' %}" class="header_menu_items">Послуги</a>
+        <a href="{% url 'home_page' %}#personal" class="header_menu_items">Спеціалісти</a>
+        <a href="{% url 'home_page' %}#check-up" class="header_menu_items">Check-Up</a>
+        <a href="#contacts" class="header_menu_items">Контакти</a>
+        <a href="{% url 'home_page' %}#about-clinic" class="header_menu_items">Про нас</a>
+    </div>
+    {% block header_content %}
+    {% endblock %}
+</header>

@@ -1,0 +1,31 @@
+{% load static %}
+{% load i18n %}
+
+<section>
+    <div class="section_header d-flex align-items-center mt-4">
+        <span class="line line-small"></span>
+        <h3 class="section_title mx-3 d-flex flex-wrap flex-md-nowrap"><span class="text-green">ZDRAVO</span><span
+                class="mx-2">-</span><span>ВАША КЛІНІКА</span></h3>
+        <span class="line line-large"></span>
+    </div>
+    <div class="w-100 mt-4">
+        <div class="row g-2 justify-content-between p-0 m-0">
+            {% for avantage in avantages %}
+                <div class="col-6 col-sm-6 col-md-3 d-flex flex-column align-items-center px-0 px-sm-1 px-md-3">
+                    <img src="{{ avantage.image.url }}" alt="avantage_icons" class="icons_img icons-size">
+                    <h1 class="section_items_title text-green text-uppercase text-center">{{ avantage.title }}</h1>
+                    <p class="section_items_description text-center mt-3">
+                        {{ avantage.description }}
+                    </p>
+                </div>
+            {% endfor %}
+        </div>
+        <h1 class="section_call_to_action_text text-center mt-3">Заключити декларацію з сімейним лікарем</h1>
+        <div class="d-flex justify-content-center mt-3">
+            <button
+                    class="primary_button text-decoration-none border-0 outline-0" data-bs-toggle="modal"
+                    data-bs-target="#Consult_form_modal">Онлайн-запис
+            </button>
+        </div>
+    </div>
+</section>

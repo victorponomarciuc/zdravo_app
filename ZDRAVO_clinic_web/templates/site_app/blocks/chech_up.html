@@ -1,0 +1,116 @@
+{% load static %}
+{% load i18n %}
+<style>
+    @media screen and (max-width: 460px) {
+        . w-sm-100{
+            width: 100% !important;
+        }
+        .white-space-wrap{
+            white-space: normal!important;
+        }
+        .checkup_line_sm_none{
+            display: none;
+        }
+    }
+</style>
+<section class="contact_section" id="check-up">
+    <div class="section_header d-flex align-items-center mt-4">
+        <span class="line line-small"></span>
+        <h3 class="section_title w-sm-100 mx-3 d-flex flex-wrap flex-md-nowrap"><span class="text-green">CHECK</span>
+            <span class="mx-1">-</span>
+            <span>UP</span>
+            {% if page_item.title %}
+            <span class="mx-2">-</span>
+            <span class="text-uppercase fw-bold text_primary white-space-wrap">{{ page_item.title }}</span>
+            {% endif %}
+        </h3>
+        <span class="line line-large checkup_line_sm_none"></span>
+    </div>
+    <div class="check-up_section">
+        <div class="row gx-2 gy-5 m-0 p-0 d-flex justify-content-between">
+            <div class="col-12 col-lg-4">
+                <div class="gray_section p-2 p-md-3 h-100 section-content_height">
+                    <p class="about_section_content h-100">{{ checkup_info.comment }}</p>
+                </div>
+            </div>
+            {% for checkup_item in checkup_items %}
+                {% if forloop.counter <= 3 %}
+                    <div class="col-6 col-md-4 col-lg-2 position-relative">
+                        <a href="{% url 'check-up_page' slug=checkup_item.slug %}" class="text-decoration-none card_image_link">
+                            <div class="cards_conent_title position-absolute text-center"><span
+                                    class="text-white text-center title_card text-uppercase">{{ checkup_item.title }}</span>
+                            </div>
+                            <img src="{{ checkup_item.image.url }}" alt="" class="w-100 fit_cover image_check_up"></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="col-lg-4 d-none d-lg-flex align-items-center">
+                <img src="{% static '/images/logo.svg' %}" alt="" class="w-100">
+            </div>
+            {% for checkup_item in checkup_items %}
+                {% if forloop.counter > 3 and  forloop.counter <= 6 %}
+                    <div class="col-6 col-md-4 col-lg-2 position-relative">
+                        <a href="{% url 'check-up_page' slug=checkup_item.slug %}" class="text-decoration-none card_image_link">
+                            <div class="cards_conent_title position-absolute text-center"><span
+                                    class="text-white text-center title_card text-uppercase">{{ checkup_item.title }}</span>
+                            </div>
+                            <img src="{{ checkup_item.image.url }}" alt="" class="w-100 fit_cover image_check_up"></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+
+            <div class="col-lg-4 d-none d-lg-flex align-items-center">
+                <div class="mt-4 me-0 me-sm-0 me-lg-4 me-xl-5 d-flex flex-column align-items-center">
+                    <div>
+                        <h3 class="three_title text-center">
+                            <span class="title_line">це</span>
+                            <span class="content_title_second text-green"> ZDRAVO - </span>
+                            <span class="title_line">коли немає черг</span>
+                        </h3>
+                    </div>
+                    <div class="d-flex justify-content-end me-0 pb-4">
+                        <div class="button_bottom_block d-flex justify-content-between flex-wrap align-items-center mt-3">
+                            <button class="primary_button text-decoration-none border-0 outline-0"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#Consult_form_modal">Онлайн-запис
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% for checkup_item in checkup_items %}
+                {% if forloop.counter == 7 %}
+                    <div class="col-6 col-md-4 col-lg-2 position-relative">
+                        <a href="{% url 'check-up_page' slug=checkup_item.slug %}" class="text-decoration-none card_image_link">
+                            <div class="cards_conent_title position-absolute text-center"><span
+                                    class="text-white text-center title_card text-uppercase">{{ checkup_item.title }}</span>
+                            </div>
+                            <img src="{{ checkup_item.image.url }}" alt="" class="w-100 fit_cover image_check_up"></a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <div class="col-6 col-md-8 col-lg-4 ms-custom d-flex align-items-end"><img
+                    src="{{ checkup_info.image.url }}" alt="" class="w-100"></div>
+            <div class="col-12 d-felx d-lg-none align-items-center">
+                <div class="mt-4 me-0 me-sm-0 me-lg-4 me-xl-5 d-flex flex-column align-items-center">
+                    <div>
+                        <h3 class="three_title text-center">
+                            <span class="title_line">це</span>
+                            <span class="content_title_second text-green"> ZDRAVO - </span>
+                            <span class="title_line">коли немає черг</span>
+                        </h3>
+                    </div>
+                    <div class="d-flex justify-content-end me-0 pb-4">
+                        <div class="button_bottom_block d-flex justify-content-between flex-wrap align-items-center mt-3">
+                            <button class="primary_button text-decoration-none border-0 outline-0"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#Consult_form_modal">Онлайн-запис
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

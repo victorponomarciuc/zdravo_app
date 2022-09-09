@@ -1,0 +1,20 @@
+{% extends 'basic/site_main.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content_page %}
+    {#    Header include #}
+    {% include 'site_app/department/header.html' %}
+
+    {% include 'site_app/department/content.html' %}
+    {% include 'site_app/department/services_table.html' %}
+    {% include 'site_app/services/contact_form_now.html' %}
+
+    {#    Section include #}
+    {% include 'site_app/blocks/contact_section.html' %}
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/Contact_Service_form.js' %}"></script>
+{% endblock %}

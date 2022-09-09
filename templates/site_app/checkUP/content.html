@@ -1,0 +1,35 @@
+{% load static %}
+{% load i18n %}
+<style>
+    .quil_editor_check-up h3 {
+        color: #023540 !important;
+        font-size: 22px !important;
+        line-height: 23px !important;
+    }
+
+    .quil_editor_check-up p {
+        margin-bottom: 0 !important;
+    }
+</style>
+<p class="about_section_content fw-normal  mt-5" style="font-size: 18px">{{ page_item.description }}</p>
+<h1 class="text-start about_section_title mt-4">{{ page_item.content_title }}</h1>
+<div class="about_section_content fw-normal quil_editor_check-up mt-5 pt-3"
+     style="font-size: 16px;">{{ page_item.content.html|safe }}</div>
+
+
+<div class="mt-5 d-flex flex-column align-items-center">
+    <div>
+        <h3 class="three_title text-center">
+            <span class="title_line">Для проведення Check-up «<span class="fw-bold text_primary">{{ page_item.title }}</span>» зверніться до свого сімейного лікаря або
+до адміністратора клініки.</span>
+        </h3>
+    </div>
+    <div class="d-flex justify-content-end me-0 pb-4">
+        <div class="button_bottom_block d-flex justify-content-between flex-wrap align-items-center mt-3">
+            <button class="primary_button text-decoration-none border-0 outline-0"
+                    data-bs-toggle="modal"
+                    data-bs-target="#CheckUP_form_modal">Пройти чек-ап
+            </button>
+        </div>
+    </div>
+</div>

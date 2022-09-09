@@ -1,0 +1,51 @@
+{% extends 'basic/site_main.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content_page %}
+    {#    Header include #}
+    {% include 'site_app/services/header.html' %}
+
+    <section class="mt-3">
+        <div class="section_header d-flex align-items-center mt-4">
+            <span class="line line-small"></span>
+            <h3 class="section_title mx-3 d-flex"><span>Отделения</span></h3>
+            <span class="line line-large"></span>
+        </div>
+        <div class="w-100 position-relative">
+            <img src="{% static '/images/Frame_min.svg' %}" class="frame_min services_frame_min" alt="">
+            <div class="row g-2 justify-content-start m-0 p-0">
+                {% for service in services %}
+                    <div class="col-6 col-sm-6 col-md-3 col-xl-2 px-0 px-sm-1 px-md-3">
+                        <a href="{% url 'department_page' slug=service.slug %}"
+                           class="w-100 h-100 d-flex text-decoration-none flex-column align-items-center">
+                            <img src="
+                                    {% if service.image %}{{ service.image.url }}{% else %}{% static 'images/default.png' %}{% endif %}"
+                                 alt="services" class="icons_img services_images icons-size">
+                            <h1 class="section_items_title text-secondary-color text-center">{{ service.name }}</h1>
+                        </a>
+                    </div>
+                {% endfor %}
+                <div class="col-6 col-sm-6 col-md-2 px-0 px-sm-1 px-md-3">
+                    <a href="{% url 'analysis_page' %}"
+                       class="w-100 h-100 d-flex text-decoration-none flex-column align-items-center">
+                        <img src="{% static 'images/34sad.png' %}"
+                             alt="services" class="icons_img services_images icons-size">
+                        <h1 class="section_items_title text-secondary-color text-center">Аналізи</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    {% include 'site_app/services/contact_form_now.html' %}
+
+    {#    Section include #}
+    {% include 'site_app/blocks/contact_section.html' %}
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/Contact_Service_form.js' %}"></script>
+{% endblock %}

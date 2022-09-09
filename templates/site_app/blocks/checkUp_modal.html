@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+<style>
+    .msgpopup{
+        z-index: 1000000000!important;
+    }
+</style>
+<div class="modal fade" id="CheckUP_form_modal" tabindex="-1" aria-labelledby="CheckUP_form_modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="CheckUP_form_modalLabel">Пройти чек-ап «{{ page_item.title }}»</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post" id="check_up_form">
+                    {% csrf_token %}
+                    <input type="hidden" name="check_up_type" value="{{ page_item.title }}">
+                    <input class="check_up_input input_custom w-100 mt-2 required_input_checkup" id="firstname_check_up"
+                           type="text"
+                           name="firstname"
+                           placeholder="Вкажіть ваше ім'я">
+{#                    <input class="check_up_input input_custom w-100 mt-2 required_input_checkup" id="lastname_check_up"#}
+{#                           type="text"#}
+{#                           name="lastname"#}
+{#                           placeholder="Вкажіть ваше прізвище">#}
+                    <input class="check_up_input input_custom w-100 mt-2 required_input_checkup" id="phone_check_up"
+                           type="phone" name="phone"
+                           placeholder="Вкажіть ваш номер телефону">
+{#                    <input class="check_up_input input_custom w-100 mt-2" id="email" type="email" name="email"#}
+{#                           placeholder="Вкажіть вашу електронну пошту">#}
+                    <textarea class="input_custom w-100 mt-2" name="comment" id="comment_check_up" placeholder="Напишіть коментар..."></textarea>
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="button" id="check_up_form_send" class="primary_button text-decoration-none border-0 outline-0 d-flex align-items-center">
+                            <span></span>
+                            Пройти чек-ап
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

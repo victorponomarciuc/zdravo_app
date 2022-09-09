@@ -1,0 +1,17 @@
+{% extends 'basic/site_main.html' %}
+
+{% block content_page %}
+    {#    Header include #}
+    {% include 'site_app/blocks/header_home.html' %}
+    {#    Section include #}
+    {% include 'site_app/blocks/vasha_clinika_section.html' %}
+    {% include 'site_app/blocks/services.html' %}
+    {% include 'site_app/blocks/personal_section.html' %}
+    {% include 'site_app/blocks/chech_up.html' %}
+    {% include 'site_app/blocks/about_section.html' %}
+    {% include 'site_app/blocks/contact_section.html' %}
+    {#    Modal forms include #}
+    {% include 'site_app/blocks/modal_forms.html' %}
+    {#    Offcanvas_menu include #}
+    {% include 'site_app/blocks/offcanvas_menu.html' %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'basic/site_main.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content_page %}
+    {#    Header include #}
+    {% include 'site_app/department/header.html' %}
+    {% include 'site_app/services/content.html' %}
+
+    {#    Section include #}
+    {% include 'site_app/blocks/contact_section.html' %}
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/product_form.js' %}"></script>
+{% endblock %}

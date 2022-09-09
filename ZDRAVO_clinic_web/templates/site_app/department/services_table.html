@@ -1,0 +1,153 @@
+{% load static %}
+{% load i18n %}
+
+
+<section class="mt-3">
+    <div class="w-100">
+        {% if consultations|length != 0 or services|length != 0 or diagnostics|length != 0 or analysis|length != 0 %}
+            {% if consultations|length != 0 %}
+                <div class="section_header d-flex align-items-center mt-5">
+                    <span class="line line-small"></span>
+                    <h3 class="section_title mx-3 d-flex"><span>Консультація</span></h3>
+                    <span class="line line-large"></span>
+                </div>
+                <div class="px-0 px-md-3 px-lg-5">
+                    <table class="table mt-3">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ПОСЛУГА</th>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ЦІНА</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody_custom">
+                        {% for consultation in consultations %}
+                            <tr>
+                                <th scope="row" class="border_green">
+                                    <a href="{% url 'service_page' slug=consultation.slug %}" class="color_primary text-decoration-none fw-bold">
+                                        {{ consultation.title }}
+                                    </a>
+                                </th>
+                                <td style="width: 120px;" class="border_green">
+                                    <a href="{% url 'service_page' slug=consultation.slug %}" class="text-green text-decoration-none fw-bold">
+                                        {{ consultation.price|floatformat:0 }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+            {% if services|length != 0 %}
+                <div class="section_header d-flex align-items-center mt-5">
+                    <span class="line line-small"></span>
+                    <h3 class="section_title mx-3 d-flex"><span>Лікування</span></h3>
+                    <span class="line line-large"></span>
+                </div>
+                <div class="px-0 px-md-3 px-lg-5">
+                    <table class="table mt-3">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ПОСЛУГА</th>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ЦІНА</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody_custom">
+                        {% for service in services %}
+                            <tr>
+                                <th scope="row" class="border_green">
+                                    <a href="{% url 'service_page' slug=service.slug %}" class="color_primary text-decoration-none fw-bold">
+                                        {{ service.title }}
+                                    </a>
+                                </th>
+                                <td style="width: 120px;" class="border_green">
+                                    <a href="{% url 'service_page' slug=service.slug %}" class="text-green text-decoration-none fw-bold">
+                                        {{ service.price|floatformat:0 }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+            {% if diagnostics|length != 0 %}
+                <div class="section_header d-flex align-items-center mt-5">
+                    <span class="line line-small"></span>
+                    <h3 class="section_title mx-3 d-flex"><span>Діагносика</span></h3>
+                    <span class="line line-large"></span>
+                </div>
+                <div class="px-0 px-md-3 px-lg-5">
+                    <table class="table mt-3">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ПОСЛУГА</th>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ЦІНА</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody_custom">
+                        {% for diagnostic in diagnostics %}
+                            <tr>
+                                <th scope="row" class="border_green">
+                                    <a href="{% url 'service_page' slug=diagnostic.slug %}" class="color_primary text-decoration-none fw-bold">
+                                        {{ diagnostic.title }}
+                                    </a>
+                                </th>
+                                <td style="width: 120px;" class="border_green">
+                                    <a href="{% url 'service_page' slug=diagnostic.slug %}" class="text-green text-decoration-none fw-bold">
+                                        {{ diagnostic.price|floatformat:0 }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+            {% if analysis|length != 0 %}
+                <div class="section_header d-flex align-items-center mt-5">
+                    <span class="line line-small"></span>
+                    <h3 class="section_title mx-3 d-flex"><span>Аналізи</span></h3>
+                    <span class="line line-large"></span>
+                </div>
+                <div class="px-0 px-md-3 px-lg-5">
+                    <table class="table mt-3">
+                        <thead>
+                        <tr>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ПОСЛУГА</th>
+                            <th scope="col" class="fw-bolder p-0 shadow-none border-0 pb-3">ЦІНА</th>
+                        </tr>
+                        </thead>
+                        <tbody class="tbody_custom">
+                        {% for analys in analysis %}
+                            <tr>
+                                <th scope="row" class="border_green">
+                                    <a href="{% url 'service_page' slug=analys.slug %}" class="color_primary text-decoration-none fw-bold">
+                                        {{ analys.title }}
+                                    </a>
+                                </th>
+                                <td style="width: 120px;" class="border_green">
+                                    <a href="{% url 'service_page' slug=analys.slug %}" class="text-green text-decoration-none fw-bold">
+                                        {{ analys.price|floatformat:0 }}
+                                    </a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% endif %}
+        {% else %}
+            <div>
+                <h1 class="section_call_to_action_text text-center mt-5">На даний момент немає послуг для цієї
+                    категорії</h1>
+                <div class="d-flex justify-content-center mt-3">
+                    <a href="{% url 'departments' %}" class="primary_button text-decoration-none border-0 outline-0">Переглянути
+                        всі
+                        категорії
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

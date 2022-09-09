@@ -1,0 +1,71 @@
+{% load static %}
+{% load i18n %}
+
+<section class="contact_section">
+    <div class="section_header d-flex align-items-center mt-4">
+        <span class="line line-small"></span>
+        <h3 class="section_title mx-3 d-flex"><span>КОНТАКТИ</span></h3>
+        <span class="line line-large"></span>
+    </div>
+    <div class="w-100" id="contacts">
+        <div class="row g-2 g-md-3 g-lg-4 g-xl-5 m-0 p-0">
+            <div class="col-12 col-sm-12 col-md-6">
+                <iframe class="geo_contacts_frame"
+                        src="{{ contacts.geolocation }}"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6">
+                <h1 class="content_title fs-2"><span class="text-green bold_title">КОНТАКТИ</span></h1>
+                <div class="d-flex flex-row-reverse align-items-center flex-wrap w-100 justify-content-end">
+                    <div class="social d-flex align-items-center me-0 me-sm-2 me-md-3 md-lg-4 me-xl-5">
+                        <a class="social_link me-1" href="{{ contacts.viber }}">
+                            <img src="{% static '/images/viber.svg' %}" class="social_top-img footer" alt="">
+                        </a>
+                        <a class="social_link" href="{{ contacts.telegram }}">
+                            <img src="{% static '/images/telegram.svg' %}" class="social_top-img footer" alt="">
+                        </a>
+                    </div>
+                    <div class="flex-wrap align-items-center me-2 me-md-3 md-lg-4 me-xl-5">
+                        <a href="tel:{{ contacts.phone }}" class="contact-footer footer_phone text-decoration-none">{{ contacts.phone }}</a>
+                    </div>
+                </div>
+                <a href="mailto:{{ contacts.mail }}" class=" text-decoration-none">
+                    <h2 class="content_title contact-footer mt-3">{{ contacts.mail }}</h2>
+                </a>
+                <h3 class="content_title description_about text-start mt-3">{{ contacts.address }}</h3>
+                <div class="d-flex align-items-center mt-4 mb-3">
+                    <a class="social_link me-2" href="{{ contacts.facebook }}">
+                        <img src="{% static '/images/facebook.svg' %}" class="social_top-img" alt="">
+                    </a>
+                    <a class="social_link" href="{{ contact.instagram }}">
+                        <img src="{% static '/images/insta.svg' %}" class="social_top-img" alt="">
+                    </a>
+                </div>
+                <div>
+                    <p class="d-flex flex-column text-secondary-color pt-3"><span class="fw-bold w-100">Дякуємо, що звернулись
+                  в нашу клініку.</span><span>Вкажіть Ваші дані, щоб наш співробітник зміг
+                  зв'язатись з Вами.</span></p>
+                </div>
+                <form action="" method="post" id="form_contact">
+                    {% csrf_token %}
+                    <input class="contact_form_input input_custom w-100 mt-2 required_input" id="firstname" type="text" name="firstname"
+                           placeholder="Вкажіть ваше ім'я">
+                    <input class="contact_form_input input_custom w-100 mt-2 required_input" id="lastname" type="text" name="lastname"
+                           placeholder="Вкажіть ваше прізвище">
+                    <input class="contact_form_input input_custom w-100 mt-2 required_input" id="phone" type="phone" name="phone"
+                           placeholder="Вкажіть ваш номер телефону">
+                    <input class="contact_form_input input_custom w-100 mt-2" id="email" type="email" name="email"
+                           placeholder="Вкажіть вашу електронну пошту">
+                    <div class="d-flex justify-content-center mt-5">
+                        <button type="button" id="contact_form_submit_button" class="primary_button text-decoration-none border-0 outline-0 d-flex align-items-center"><span></span> Отримати
+                            консультацію
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
